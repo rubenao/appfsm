@@ -1,0 +1,21 @@
+trix-editor {
+    height: auto!important;
+    min-height: 400px;
+}
+
+
+
+
+.owl-carousel .owl-stage { display: flex; }
+.card {
+    display: flex;
+    flex: 1 0 auto;
+    height: 100%;
+}
+.card-body {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
