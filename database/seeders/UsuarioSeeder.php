@@ -22,7 +22,7 @@ class UsuarioSeeder extends Seeder
             'password' => bcrypt('secret'),
         ])->assignRole('admin');
 
-        $user->perfil()->create();
+        //$user->perfil()->create();
 
         User::factory(20)->create();
     }
