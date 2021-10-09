@@ -23,7 +23,7 @@
             <div class="col-md-4 mt-4">
 
                 <div class="card">
-                    <img src="/storage/{{$nueva->imagen}}" class="card-img-top "alt="imagen receta">
+                    <img src="{{$nueva->imagen}}" class="card-img-top "alt="imagen receta">
                     <div class="card-body">
                         <h3 class="text-center">{{$nueva->titulo}}</h3>
                         <p>{{ Str::words(strip_tags( $nueva->descripcion ), 20)}}</p>

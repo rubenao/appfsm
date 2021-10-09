@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Usuario;
 
 use App\Models\Rutina;
-use App\Http\Controllers\Controller;
-use App\Models\CategoriaRutina;
 use Illuminate\Http\Request;
+use App\Models\CategoriaRutina;
+use JD\Cloudder\Facades\Cloudder;
+use App\Http\Controllers\Controller;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class RutinaController extends Controller
 {
@@ -59,9 +61,29 @@ class RutinaController extends Controller
 
         $data=request();
 
+        //$image = $request->file('imagen');
+        //$image = $request->file('image')->getRealPath();
+
+        //$ruta_imagen=$request->file('imagen')->getRealPath();
+        /**$imagen=Cloudder::upload($ruta_imagen, null, array(
+            "folder" => "laravel_tutorial",  "overwrite" => FALSE,
+            "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "70", "width" => "250", "height" => "250", "crop" => "scale")
+        ));*/
+
+        //$public_id = Cloudder::getPublicId();
+
+        //$width = 250;
+        //$height = 250;
+
+        //$image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
+
       
         // obtener la ruta de la imagen
-        $ruta_imagen = $request['imagen']->store('upload-recetas', 'public');
+        //$ruta_imagen = $request['imagen']->store('upload-recetas', 'public');
+
+
+        $ruta_imagen=Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();
+
 
         //dd($request->all());
 

@@ -12,7 +12,8 @@
     <h1 class="text-center mb-4">{{$rutina->titulo}}</h1>
 
     <div class="imagen-receta">
-        <img src="/storage/{{ $rutina->imagen }}" class="w-100">
+       {{-- <img src="/storage/{{ $rutina->imagen }}" class="w-100">--}}
+       <img src="{{ $rutina->imagen }}" class="w-100">
     </div>
 
     <div class="receta-meta mt-3">
