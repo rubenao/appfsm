@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models\Usuario;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Receta extends Model
 {
     use HasFactory;
+
+    public function autorReceta(){
+
+        $this->belongsTo(User::class, 'user_id');
+    }
 }

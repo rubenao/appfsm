@@ -15,8 +15,20 @@ class Rutina extends Model
         'descripcion', 
         'url', 
         'imagen', 
-        'categoria_id'
+        'categoria_id',
+        'nivel_id',
+        'equipo_id'
     ];
+
+    public function nivel(){
+
+        return $this->belongsTo(NivelRutina::class);
+    }
+
+    public function equipo(){
+
+        return $this->belongsTo(EquipoRutina::class);
+    }
 
     public function categoria()
     {

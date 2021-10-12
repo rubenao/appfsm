@@ -63,6 +63,16 @@ class User extends Authenticatable
         return $this->hasMany(Rutina::class);
     }
 
+    public function entradas(){
+
+        return $this->hasMany(Blog::class);
+    }
+
+    public function recetas(){
+
+        return $this->hasMany(Receta::class);
+    }
+
     public function perfil(){
 
         return $this->hasOne(Perfil::class);

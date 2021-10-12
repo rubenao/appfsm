@@ -57,6 +57,54 @@
                     @enderror
                 </div>
 
+                <div class="from-group mt-3">
+                    <label for="nivel">nivel de la rutina</label>
+
+                    <select
+                        name="nivel"
+                        class="form-control @error('nivel') is-invalid @enderror "
+                        id="nivel"
+                    >
+                        <option value="">-- Seleccione -</option>
+                        @foreach ($niveles as $nivel)
+                            <option 
+                                value="{{ $nivel->id }}" 
+                                {{ $rutina->nivel_id == $nivel->id ? 'selected' : '' }} 
+                            >{{$nivel->nombre}}</option>
+                        @endforeach
+                    </select>
+
+                    @error('nivel')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
+                <div class="from-group mt-3">
+                    <label for="equipo">Equipo utilizado en la rutina</label>
+
+                    <select
+                        name="equipo"
+                        class="form-control @error('equipo') is-invalid @enderror "
+                        id="equipo"
+                    >
+                        <option value="">-- Seleccione -</option>
+                        @foreach ($equipos as $equipo)
+                            <option 
+                                value="{{ $equipo->id }}" 
+                                {{ $rutina->equipo_id == $equipo->id ? 'selected' : '' }} 
+                            >{{$equipo->nombre}}</option>
+                        @endforeach
+                    </select>
+
+                    @error('equipo')
+                        <span class="invalid-feedback d-block" role="alert">
+                            <strong>{{$message}}</strong>
+                        </span>
+                    @enderror
+                </div>
+
                 <div class="form-group mt-3">
                     <label for="descripcion">Descripcion de la rutina</label>
                     <input id="descripcion" type="hidden" name="descripcion" value="{{ $rutina->descripcion }}">

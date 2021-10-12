@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\CategoriaRutina;
 use JD\Cloudder\Facades\Cloudder;
 use App\Http\Controllers\Controller;
+use App\Models\EquipoRutina;
+use App\Models\NivelRutina;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class RutinaController extends Controller
@@ -36,9 +38,11 @@ class RutinaController extends Controller
     {
         //
 
+        $niveles= NivelRutina::all(['id', 'nombre']);
+        $equipos=EquipoRutina::all(['id', 'nombre']);
         $categorias = CategoriaRutina::all(['id', 'nombre']);
 
-        return view('usuarios.rutina.create', compact('categorias'));
+        return view('usuarios.rutina.create', compact('categorias', 'niveles', 'equipos'));
     }
 
     /**
@@ -103,7 +107,9 @@ class RutinaController extends Controller
             'descripcion' => $data['descripcion'],
             'url' => $data['url'],
             'imagen' => $ruta_imagen,
-            'categoria_id' => $data['categoria']
+            'categoria_id' => $data['categoria'],
+            'equipo_id' => $data['equipo'],
+            'nivel_id' => $data['nivel']
         ]);
 
        // Redireccionar
@@ -138,8 +144,10 @@ class RutinaController extends Controller
     {
         //
         $categorias = CategoriaRutina::all(['id', 'nombre']);
+        $niveles= NivelRutina::all(['id', 'nombre']);
+        $equipos=EquipoRutina::all(['id', 'nombre']);
 
-        return view('usuarios.rutina.edit', compact('categorias', 'rutina'));
+        return view('usuarios.rutina.edit', compact('categorias', 'rutina', 'niveles', 'equipos'));
     }
 
     /**

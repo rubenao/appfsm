@@ -11,12 +11,12 @@
 <article class="contenido-receta bg-white p-5 shadow">
     <h1 class="text-center mb-4">{{$rutina->titulo}}</h1>
 
-    <div class="imagen-receta">
+    <div class="imagen-rutina">
        {{-- <img src="/storage/{{ $rutina->imagen }}" class="w-100">--}}
        <img src="{{ $rutina->imagen }}" class="w-100">
     </div>
 
-    <div class="receta-meta mt-3">
+    <div class="rutina-meta mt-3">
         <p>
             <span class="font-weight-bold text-primary">Escrito en:</span>
             <a class="text-dark" href=" ">
@@ -29,6 +29,22 @@
             <span class="font-weight-bold text-primary">Autor:</span>
             <a class="text-dark" href=" {{route('usuarios.perfil.show', ['perfil' => $rutina->autor->id ])}}">
                 {{$rutina->autor->name}}
+            </a>
+
+        </p>
+
+        <p>
+            <span class="font-weight-bold text-primary">Nivel:</span>
+            <a class="text-dark" href=" {{route('usuarios.perfil.show', ['perfil' => $rutina->nivel->id ])}}">
+                {{$rutina->nivel->nombre}}
+            </a>
+
+        </p>
+
+        <p>
+            <span class="font-weight-bold text-primary">Equipo:</span>
+            <a class="text-dark" href=" {{route('usuarios.perfil.show', ['perfil' => $rutina->equipo->id ])}}">
+                {{$rutina->equipo->nombre}}
             </a>
 
         </p>
