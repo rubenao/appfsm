@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Usuario;
 use App\Models\Rutina;
 use Illuminate\Http\Request;
 use App\Models\CategoriaRutina;
-use JD\Cloudder\Facades\Cloudder;
 use App\Http\Controllers\Controller;
 use App\Models\EquipoRutina;
 use App\Models\NivelRutina;

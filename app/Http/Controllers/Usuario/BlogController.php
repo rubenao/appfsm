@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Usuario;
 
-use App\Models\Usuario\Blog;
-use App\Http\Controllers\Controller;
+use App\Models\Blog;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class BlogController extends Controller
 {
@@ -17,7 +18,10 @@ class BlogController extends Controller
     {
         //
 
-        return view('usuarios.blog.index');
+        $usuario= Auth()->user();
+        $entradas=Blog::where('user_id', $usuario->id)->paginate(10);
+
+        return view('usuarios.blog.index', compact('usuario', 'entradas'));
     }
 
     /**
@@ -28,6 +32,8 @@ class BlogController extends Controller
     public function create()
     {
         //
+
+        return view('usuarios.blog.create');
     }
 
     /**
@@ -36,9 +42,26 @@ class BlogController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Blog $blog)
     {
         //
+
+        $data=request();
+
+        $imagen_url=Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();
+
+        auth()->user()->entradas()->create([
+
+            'titulo' => $data['titulo'],
+            'descripcion' => $data['descripcion'],
+            'imagen' => $imagen_url
+        ]);
+
+        return redirect()->action('App\Http\Controllers\Usuario\BlogController@index');
+
+
+
+
     }
 
     /**
@@ -50,6 +73,8 @@ class BlogController extends Controller
     public function show(Blog $blog)
     {
         //
+
+        return view('usuarios.blog.show', compact('blog'));
     }
 
     /**
@@ -61,6 +86,10 @@ class BlogController extends Controller
     public function edit(Blog $blog)
     {
         //
+
+        return view('usuarios.blog.edit', compact('blog'));
+
+        
     }
 
     /**
@@ -73,6 +102,28 @@ class BlogController extends Controller
     public function update(Request $request, Blog $blog)
     {
         //
+
+        $data=request();
+
+        $blog->titulo=$data['titulo'];
+        $blog->descripcion=$data['descripcion'];
+        
+        // Si el usuario sube una nueva imagen
+        if(request('imagen')) {
+            // obtener la ruta de la imagen
+            $ruta_imagen = Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();
+
+            // Resize de la imagen
+            //$img = Image::make( public_path("storage/{$ruta_imagen}"))->fit(1000, 550);
+            //$img->save();
+
+            // Asignar al objeto
+            $blog->imagen = $ruta_imagen;
+        }
+
+        $blog->save();
+
+        return redirect()->action('App\Http\Controllers\Usuario\BlogController@index');
     }
 
     /**
