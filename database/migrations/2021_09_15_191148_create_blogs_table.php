@@ -18,6 +18,7 @@ class CreateBlogsTable extends Migration
             $table->string('titulo');
             $table->string('descripcion');
             $table->string('imagen');
+            $table->string('slug')->unique();
             $table->foreignId('user_id')->references('id')->on('users')->comment('El id del usuario que crea la entrada');
             $table->timestamps();
         });

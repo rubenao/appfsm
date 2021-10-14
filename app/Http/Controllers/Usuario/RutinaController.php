@@ -105,6 +105,7 @@ class RutinaController extends Controller
             'titulo' => $data['titulo'],
             'descripcion' => $data['descripcion'],
             'url' => $data['url'],
+            'slug' => $data['slug'],
             'imagen' => $ruta_imagen,
             'categoria_id' => $data['categoria'],
             'equipo_id' => $data['equipo'],
@@ -164,6 +165,7 @@ class RutinaController extends Controller
         $rutina->titulo = $data['titulo'];
         $rutina->descripcion = $data['descripcion'];
         $rutina->url = $data['url'];
+        $rutina->slug=$data['slug'];
         $rutina->categoria_id = $data['categoria'];
 
 

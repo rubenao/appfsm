@@ -14,6 +14,7 @@ class Rutina extends Model
         'titulo', 
         'descripcion', 
         'url', 
+        'slug',
         'imagen', 
         'categoria_id',
         'nivel_id',
@@ -43,5 +44,10 @@ class Rutina extends Model
     public function likes(){
 
         return $this->belongsToMany(User::class, 'likes_receta');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

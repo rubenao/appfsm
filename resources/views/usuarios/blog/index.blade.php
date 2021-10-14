@@ -30,9 +30,9 @@
                     <td> {{$entrada->titulo}} </td>
                     <td>
 
-                        <a href="{{route('usuarios.blog.edit', ['blog'=> $entrada -> id])}}" class="btn btn-dark w-100 mb-2" >Editar</a>
-                        <a href="{{route('usuarios.blog.show', ['blog'=> $entrada -> id])}}" class="btn btn-success w-100 mb-2">Ver</a>
-                        <a href="{{route('usuarios.blog.destroy', ['blog'=> $entrada -> id])}}" class="btn btn-danger w-100 mb-2">Eliminar</a>
+                        <a href="{{route('usuarios.blog.edit', ['blog'=> $entrada ->slug])}}" class="btn btn-dark w-100 mb-2" >Editar</a>
+                        <a href="{{route('usuarios.blog.show', ['blog'=> $entrada ->slug])}}" class="btn btn-success w-100 mb-2">Ver</a>
+                        <a href="{{route('usuarios.blog.destroy', ['blog'=> $entrada ->slug])}}" class="btn btn-danger w-100 mb-2">Eliminar</a>
 
                         
                     </td>

@@ -11,12 +11,18 @@ class Blog extends Model
 
     protected $fillable = [
         'titulo', 
-        'descripcion',  
+        'descripcion',
+        'slug',  
         'imagen',
     ];
 
     public function autorBlog(){
 
         return $this->belongsTo(User::class , 'user_id');
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
     }
 }

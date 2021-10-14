@@ -76,6 +76,14 @@
                                     href="{{ route('usuarios.rutinas.index')}}">
                                         {{'Rutinas' }}
                                     </a>
+                                    <a class="dropdown-item" 
+                                    href="{{ route('usuarios.blog.index')}}">
+                                        {{'Blog' }}
+                                    </a>
+                                    <a class="dropdown-item" 
+                                    href="{{ route('usuarios.recetas.index')}}">
+                                        {{'Recetas' }}
+                                    </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf

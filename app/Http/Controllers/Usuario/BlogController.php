@@ -54,6 +54,7 @@ class BlogController extends Controller
 
             'titulo' => $data['titulo'],
             'descripcion' => $data['descripcion'],
+            'slug' => $data['slug'],
             'imagen' => $imagen_url
         ]);
 
@@ -107,6 +108,7 @@ class BlogController extends Controller
 
         $blog->titulo=$data['titulo'];
         $blog->descripcion=$data['descripcion'];
+        $blog->slug=$data['slug'];
         
         // Si el usuario sube una nueva imagen
         if(request('imagen')) {

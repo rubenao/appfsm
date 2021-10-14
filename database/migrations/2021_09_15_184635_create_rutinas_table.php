@@ -42,6 +42,7 @@ class CreateRutinasTable extends Migration
             $table->text('descripcion');
             $table->string('imagen');
             $table->string('url');
+            $table->string('slug')->unique();
             $table->foreignId('user_id')->references('id')->on('users')->comment('El usuario que crea la rutina');
             $table->foreignId('categoria_id')->references('id')->on('categoria_rutinas')->comment('La categoría de la rutina');
             $table->foreignId('nivel_id')->references('id')->on('nivel_rutinas')->comment('El nivel de la rutina');
