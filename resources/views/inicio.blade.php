@@ -61,7 +61,7 @@
                                     
                         </div>
                         <p>{{ Str::words(strip_tags( $rutina ->descripcion ), 20)}}</p>
-                        <a class="btn btn-primary d-block" href="{{route('usuarios.rutinas.show', ['rutina' => $rutina ->id])}}">Ver rutina</a>
+                        <a class="btn btn-primary d-block" href="{{route('usuarios.rutinas.show', ['rutina' => $rutina->slug])}}">Ver rutina</a>
                     </div>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                                         
                                 </div>--}}
                                 <p>{{ Str::words(strip_tags( $receta -> preparacion ), 20)}}</p>
-                                <a class="btn btn-primary d-block" href="{{route('usuarios.rutinas.show', ['rutina' => $receta->id])}}">Ver rutina</a>
+                                <a class="btn btn-primary d-block" href="{{route('usuarios.rutinas.show', ['rutina' => $receta->slug])}}">Ver rutina</a>
                             </div>
                         </div>
                     </div>
