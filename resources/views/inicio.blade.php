@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <h3 class="text-center">{{$nueva->titulo}}</h3>
                         <p>{{ Str::words(strip_tags( $nueva->descripcion ), 20)}}</p>
-                        <a class="btn btn-primary d-block font-weight-light" href="{{route('usuarios.rutinas.show', ['rutina' => $nueva ->slug])}}">Ver rutina</a>
+                        <a class="btn btn-primary d-block font-weight-light" href="{{route('usuarios.rutinas.show', ['rutina' => $nueva->slug])}}">Ver rutina</a>
                     </div>
                 </div>
 
