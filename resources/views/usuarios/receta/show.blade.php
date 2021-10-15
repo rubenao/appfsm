@@ -29,14 +29,14 @@
 
         </p>
 
-        {{--<p>
+        <p>
             <span class="font-weight-bold text-primary">Fecha:</span>
             @php
-                $fecha = $rutina->created_at
+                $fecha = $receta->created_at
             @endphp
 
             <fecha-receta fecha="{{$fecha}}" ></fecha-receta>
-        </p>--}}
+        </p>
 
 
 

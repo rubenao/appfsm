@@ -7,12 +7,12 @@
 
 @section('content')
 
-<h2 class="text-center mb-5">Editar Entrada</h2>
+<h2 class="text-center mb-5">Editar Entrada: {{$blog->titulo}}</h2>
 
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <form method="POST" action="{{ route('usuarios.blog.update', ['blog' => $blog->id]) }}" enctype="multipart/form-data" novalidate>
+        <form method="POST" action="{{ route('usuarios.blog.update', ['blog' => $blog->slug]) }}" enctype="multipart/form-data" novalidate>
             @csrf
 
             @method('PUT')
@@ -24,7 +24,7 @@
                     class="form-control @error('titulo') is-invalid @enderror "
                     id="titulo"
                     placeholder="Titulo Entrada"
-                    value={{ $blog->titulo }}
+                    value="{{ $blog->titulo }}"
                 >
 
                 @error('titulo')

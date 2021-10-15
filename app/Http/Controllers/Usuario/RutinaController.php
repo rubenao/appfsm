@@ -50,55 +50,27 @@ class RutinaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Rutina $rutina)
+    public function store(Request $request)
     {
         //
         //Validacion de datos
-        //$data = $request->validate([
-        //    'titulo' => 'required|min:6',
-        //    'descripciom' => 'required',
-        //    'url' => 'required',
-        //    'imagen' => 'required|image',         
-        //    'categoria' => 'required',
-        //]);
+        $data=$request->validate([
+            'titulo' => 'required|min:6',
+            'descripcion' => 'required',
+            'url' => 'required',
+            'imagen' => 'required|image|max:2098',         
+            'categoria' => 'required',
+            'nivel' => 'required',
+            'equipo' => 'required',
+        ]);
 
         $data=request();
-
-        //$image = $request->file('imagen');
-        //$image = $request->file('image')->getRealPath();
-
-        //$ruta_imagen=$request->file('imagen')->getRealPath();
-        /**$imagen=Cloudder::upload($ruta_imagen, null, array(
-            "folder" => "laravel_tutorial",  "overwrite" => FALSE,
-            "resource_type" => "image", "responsive" => TRUE, "transformation" => array("quality" => "70", "width" => "250", "height" => "250", "crop" => "scale")
-        ));*/
-
-        //$public_id = Cloudder::getPublicId();
-
-        //$width = 250;
-        //$height = 250;
-
-        //$image_url = Cloudder::show(Cloudder::getPublicId(), ["width" => $width, "height" => $height, "crop" => "scale", "quality" => 70, "secure" => "true"]);
-
       
         // obtener la ruta de la imagen
         //$ruta_imagen = $request['imagen']->store('upload-recetas', 'public');
 
 
         $ruta_imagen=Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();
-
-
-        //dd($request->all());
-
-        // almacenar en la bd (sin modelo)
-        // DB::table('admins')->insert([
-        //     'titulo' => $data['titulo'],
-        //     'descripcion' => $data['descripcion'],
-        //     'url' => $data['url'],
-        //     'imagen' => $ruta_imagen,
-        //     'user_id' => Auth::user()->id,
-        //     'categoria_id' => $data['categoria']
-        // ]);
 
         // almacenar en la BD (con modelo)
         auth()->user()->rutinas()->create([

@@ -33,6 +33,9 @@ class CategoriaSeeder extends Seeder
             'nombre' => 'Biceps y triceps',
         ]);
         CategoriaRutina::create([
+            'nombre' => 'Hombros',
+        ]);
+        CategoriaRutina::create([
             'nombre' => 'Full body',
         ]);
         CategoriaRutina::create([

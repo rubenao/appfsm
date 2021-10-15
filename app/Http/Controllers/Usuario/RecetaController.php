@@ -44,6 +44,14 @@ class RecetaController extends Controller
     {
         //
 
+        $data=$request->validate([
+
+            'titulo' => 'required',
+            'ingredientes' => 'required',
+            'preparacion' => 'required',
+            'imagen' => 'required|image|max:2098', 
+        ]);
+
         $data=request();
 
         $imagen_url=Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();
@@ -53,7 +61,7 @@ class RecetaController extends Controller
             'titulo' => $data['titulo'],
             'ingredientes' => $data['ingredientes'],
             'preparacion' => $data['preparacion'],
-            'slug' => $data['slug'];
+            'slug' => $data['slug'],
             'imagen' => $imagen_url
         ]);
 

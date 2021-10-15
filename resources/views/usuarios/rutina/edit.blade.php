@@ -11,7 +11,7 @@
 
     <div class="row justify-content-center mt-5">
         <div class="col-md-8">
-            <form method="POST" action="{{ route('usuarios.rutinas.update', ['rutina' => $rutina->id]) }}" enctype="multipart/form-data" novalidate>
+            <form method="POST" action="{{ route('usuarios.rutinas.update', ['rutina' => $rutina->slug]) }}" enctype="multipart/form-data" novalidate>
                 @csrf
                 
                 @method('PUT')
@@ -161,7 +161,7 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="submit" class="btn btn-primary" value="Agregar Rutina" >
+                    <input type="submit" class="btn btn-primary" value="Actualizar Rutina" >
                 </div>
 
             </form>

@@ -22,9 +22,13 @@ use App\Http\Controllers\Usuario\RutinaController;
 |
 */
 
-Auth::routes();
+Auth::routes(['verify' =>true]);
 //Ruta de la pagina principal de la aplicacion
 Route::get('/', 'App\Http\Controllers\InicioController@index')->name('inicio.index');
+Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home.index');
+
+
+//Route::get('/verificacion', 'App\Http\Controllers\Auth\VerificationController@index')->name('verificacion.index');
 
 
 //Rutas de los usuarios
@@ -34,7 +38,7 @@ Route::prefix('usuarios')->name('usuarios.')->group(function(){
     Route::resource('recetas',  RecetaController::class)->names('recetas');
     Route::resource('blog',  BlogController::class)->names('blog');
     Route::resource('comidas', ComidaController::class)->names('comidas');
-    Route::resource('perfil', PerfilController::class)->names('perfil')->except(['index', 'destroy']);
+    Route::resource('perfil', PerfilController::class)->names('perfil')->except(['index', 'destroy', 'create']);
     Route::get('/entrenamientos', 'App\Http\Controllers\Usuario\EntrenamientoController@index')->name('entrenamiento.index');
     Route::get('/condicion', 'App\Http\Controllers\Usuario\CondicionController@index')->name('condicion.index');
     Route::get('/dashboard', 'App\Http\Controllers\Usuario\DashboardController@index')->name('dashboard.index');

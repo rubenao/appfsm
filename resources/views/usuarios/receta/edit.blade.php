@@ -7,12 +7,12 @@
 
 @section('content')
 
-<h2 class="text-center mb-5">Editar Receta</h2>
+<h2 class="text-center mb-5">Editar Receta : {{$receta->titulo}}</h2>
 
 
 <div class="row justify-content-center mt-5">
     <div class="col-md-8">
-        <form method="POST" action="{{ route('usuarios.recetas.update', ['receta' => $receta->id]) }}" enctype="multipart/form-data" novalidate>
+        <form method="POST" action="{{ route('usuarios.recetas.update', ['receta' => $receta->slug]) }}" enctype="multipart/form-data" novalidate>
             @csrf
 
             @method('PUT')
@@ -24,7 +24,7 @@
                     class="form-control @error('titulo') is-invalid @enderror "
                     id="titulo"
                     placeholder="Titulo Receta"
-                    value={{ $receta->titulo }}
+                    value="{{ $receta->titulo }}"
                 >
 
                 @error('titulo')

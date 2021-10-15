@@ -46,6 +46,15 @@ class BlogController extends Controller
     {
         //
 
+        $data=$request->validate([
+
+            'titulo' => 'required',
+            'descripcion' => 'required',
+            'imagen' => 'required|image|max:2098', 
+
+
+        ]);
+
         $data=request();
 
         $imagen_url=Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();

@@ -129,6 +129,7 @@
                     type="file" 
                     class="form-control @error('imagen') is-invalid @enderror"
                     name="imagen"
+                    value="{{old('imagen')}}"
                 >
 
                 @error('imagen')
@@ -146,6 +147,7 @@
                     type="text" 
                     class="form-control @error('url') is-invalid @enderror"
                     name="url"
+                    value="{{old('url')}}"
                 >
 
                 @error('url')

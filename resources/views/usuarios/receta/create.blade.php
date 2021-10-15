@@ -52,7 +52,7 @@
 
             <div class="form-group mt-3">
                 <label for="preparacion">Preparacion</label>
-                <input id="preparacion" type="hidden" name="preparacion" value="{{ old('descripcion')}}">
+                <input id="preparacion" type="hidden" name="preparacion" value="{{ old('preparacion')}}">
                 <trix-editor 
                     class="form-control @error('preparacion') is-invalid @enderror "
                     input="preparacion"
