@@ -32,8 +32,7 @@
 
                         <a href="{{route('usuarios.recetas.edit', ['receta'=> $receta ->slug])}}" class="btn btn-dark w-100 mb-2" >Editar</a>
                         <a href="{{route('usuarios.recetas.show', ['receta'=> $receta ->slug])}}" class="btn btn-success w-100 mb-2">Ver</a>
-                        <a href="{{route('usuarios.recetas.destroy', ['receta'=> $receta ->slug])}}" class="btn btn-danger w-100 mb-2">Eliminar</a>
-
+                        <eliminar-receta receta-slug={{$receta->slug}}></eliminar-receta>
                         
                     </td>
                 </tr>

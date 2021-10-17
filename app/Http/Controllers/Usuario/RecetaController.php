@@ -138,5 +138,9 @@ class RecetaController extends Controller
     public function destroy(Receta $receta)
     {
         //
+
+        $receta->delete();
+
+        return redirect()->action('App\Http\Controllers\Usuario\RecetaController@index');
     }
 }

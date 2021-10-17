@@ -19,3 +19,83 @@ trix-editor {
     flex-direction: column;
     align-items: stretch;
 }
+
+.hero-banner {
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.4), rgba(53, 53, 53, 0.571)),
+    url('https://res.cloudinary.com/fitstylemind/image/upload/v1634418038/karsten-winegeart-0Wra5YYVQJE-unsplash_1_adoju9.jpg');
+    height:40rem;
+    background-size: cover;
+    background-position: center;
+    .contenedor-hero {
+
+        color: #FFF;
+        margin-left: 3rem ;
+        .caption-hero {
+            font-size: 60px; 
+            line-height: 90px;          
+        }
+        .parrafo-hero {
+            font-family: $parrafos-font-family;
+            font-size: 30px !important;
+        }
+    }
+    
+}
+
+@media (max-width:600px) {
+
+    .hero-banner {
+        height:30rem;
+        .contenedor-hero {
+            color: #FFF;
+            margin-left: 1.5rem ;
+            .caption-hero {
+                font-size: 50px; 
+                line-height: 70px;          
+            }
+            .parrafo-hero {
+                font-family: $parrafos-font-family;
+                font-size: 20px !important;
+            }
+        }
+    } 
+}
+
+
+.hero-categorias {
+    background-image: linear-gradient(to bottom, rgba(70, 70, 70, 0.4), rgba(53, 53, 53, 0.571)),
+    url('https://res.cloudinary.com/fitstylemind/image/upload/v1634418039/karsten-winegeart-w6BHqa8ukc0-unsplash_1_u6gzsl.jpg');
+    height:40rem;
+    background-size: cover;
+    background-position: center;
+
+    .contenedor-hero-categorias {
+
+        color: #FFF;
+        margin-left: 3rem ;
+        .caption-hero {
+        
+            font-size: 70px; 
+            line-height: 110px;   
+            
+        }
+    }
+  
+}
+
+@media (max-width:600px) {
+
+    .hero-categorias {
+        height:30rem;
+
+        .contenedor-hero-categorias {
+            color: #FFF;
+            margin-left: 1.5rem ;
+
+            .caption-hero {
+                font-size: 50px; 
+                line-height: 70px;          
+            }
+        }
+    } 
+}

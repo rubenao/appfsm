@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Usuario;
 
 use App\Models\Rutina;
+use App\Models\NivelRutina;
+use App\Models\EquipoRutina;
 use Illuminate\Http\Request;
 use App\Models\CategoriaRutina;
 use App\Http\Controllers\Controller;
-use App\Models\EquipoRutina;
-use App\Models\NivelRutina;
+use Intervention\Image\Facades\Image;
 use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 class RutinaController extends Controller
@@ -58,7 +59,7 @@ class RutinaController extends Controller
             'titulo' => 'required|min:6',
             'descripcion' => 'required',
             'url' => 'required',
-            'imagen' => 'required|image|max:2098',         
+            'imagen' => 'required|image|max:2500',         
             'categoria' => 'required',
             'nivel' => 'required',
             'equipo' => 'required',
@@ -69,8 +70,19 @@ class RutinaController extends Controller
         // obtener la ruta de la imagen
         //$ruta_imagen = $request['imagen']->store('upload-recetas', 'public');
 
+        $ruta_imagen=Cloudinary::upload($request->file('imagen')->getRealPath(), 
+            [
+            'folder' => 'fsmuploads',
+            'transformation' => [
+                      'width' => 1500,
+                      'height' => 800,
+                      'crop' => 'fill'
+             ]
+            ])->getSecurePath();
 
-        $ruta_imagen=Cloudinary::upload($request->file('imagen')->getRealPath())->getSecurePath();
+        //Editando la imagen
+        //$img=Image::make($ruta_imagen)->fit(1000,550);
+        //$img-> save();
 
         // almacenar en la BD (con modelo)
         auth()->user()->rutinas()->create([

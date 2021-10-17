@@ -26,6 +26,7 @@
     },
     "dependencies": {
         "moment": "^2.29.1",
-        "tiny-slider": "^2.9.3"
+        "tiny-slider": "^2.9.3",
+        "vue-sweetalert2": "^5.0.2"
     }
 }

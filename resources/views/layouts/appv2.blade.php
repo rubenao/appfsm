@@ -16,7 +16,10 @@
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    {{--<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">--}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&family=Roboto:wght@300&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -24,8 +27,6 @@
 <body>
     
     <div id="app">
-        
-        
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         
             <div class="container">
@@ -63,8 +64,6 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                               
-
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -100,20 +99,26 @@
             </div>
         </nav>
 
+        @yield('hero')
+        
         <div class="container">
-
             <div class="row">
-                <main class="py-4 mt-5 col-12">
+                <main class="py-4 mt-2 col-12">
                     @yield('content')
                 </main>
-            </div>
-            
+            </div>  
         </div>
 
+        @yield('hero-categorias')
 
-    </div>
-
-        
+        <div class="container">
+            <div class="row">
+                <main class="py-4 mt-2 col-12">
+                    @yield('categorias')
+                </main>
+            </div>  
+        </div>
+    </div>     
     @yield('scripts')
 </body>
 </html>

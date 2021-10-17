@@ -77,7 +77,7 @@
 
         <div class="justify-content-center row text-center">
             <like-button
-                rutina-id="{{$rutina->id}}" like="{{$like}}" likes="{{$likes}}"
+                rutina-id="{{$rutina->slug}}" like="{{$like}}" likes="{{$likes}}"
                 
             ></like-button>
         </div>

@@ -36,9 +36,14 @@
                     <td> {{$rutina->categoria->nombre}} </td>
                     <td>
 
-                        <a href="{{route('usuarios.rutinas.edit', ['rutina'=> $rutina ->slug])}}" class="btn btn-dark w-100 mb-2" >Editar</a>
-                        <a href="{{route('usuarios.rutinas.show', ['rutina'=> $rutina ->slug])}}" class="btn btn-success w-100 mb-2">Ver</a>
-                        <a href="{{route('usuarios.rutinas.destroy', ['rutina'=> $rutina ->id])}}" class="btn btn-danger w-100 mb-2">Eliminar</a>
+                        <eliminar rutina-slug={{$rutina->slug}}>
+
+
+                        </eliminar>
+
+                        <a href="{{route('usuarios.rutinas.edit', ['rutina'=> $rutina ->slug])}}" class="btn btn-dark d-block mb-2" >Editar</a>
+                        <a href="{{route('usuarios.rutinas.show', ['rutina'=> $rutina ->slug])}}" class="btn btn-success d-block mb-2">Ver</a>
+                        
 
                         
                     </td>

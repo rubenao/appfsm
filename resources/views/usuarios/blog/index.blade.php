@@ -32,7 +32,9 @@
 
                         <a href="{{route('usuarios.blog.edit', ['blog'=> $entrada ->slug])}}" class="btn btn-dark w-100 mb-2" >Editar</a>
                         <a href="{{route('usuarios.blog.show', ['blog'=> $entrada ->slug])}}" class="btn btn-success w-100 mb-2">Ver</a>
-                        <a href="{{route('usuarios.blog.destroy', ['blog'=> $entrada ->slug])}}" class="btn btn-danger w-100 mb-2">Eliminar</a>
+                        <eliminar-entrada entrada-slug={{$entrada->slug}}>
+
+                        </eliminar-entrada>
 
                         
                     </td>
