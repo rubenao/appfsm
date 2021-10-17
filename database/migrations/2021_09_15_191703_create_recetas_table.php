@@ -16,8 +16,8 @@ class CreateRecetasTable extends Migration
         Schema::create('recetas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('ingredientes');
-            $table->string('preparacion');
+            $table->text('ingredientes');
+            $table->text('preparacion');
             $table->string('imagen');
             $table->string('slug')->unique();
             $table->foreignId('user_id')->references('id')->on('users')->comment('El usuario que crea la receta');

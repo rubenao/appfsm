@@ -16,7 +16,7 @@ class CreateBlogsTable extends Migration
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
-            $table->string('descripcion');
+            $table->text('descripcion');
             $table->string('imagen');
             $table->string('slug')->unique();
             $table->foreignId('user_id')->references('id')->on('users')->comment('El id del usuario que crea la entrada');
